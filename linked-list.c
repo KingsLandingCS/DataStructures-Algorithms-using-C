@@ -12,6 +12,21 @@ void Insert(int x)
 {
     Node *temp = (Node *)malloc(sizeof(struct Node));
     temp->data = x;
+    temp->next = NULL;
+    if (head != NULL)
+        temp->next = head;
+    head = temp;
+}
+
+void printf()
+{
+    struct Node *temp = head;
+    printf("List is: ");
+    while (temp != NULL)
+    {
+        printf("%d", temp->data);
+        temp = temp->next;
+    }
 }
 void Print() int main()
 {
