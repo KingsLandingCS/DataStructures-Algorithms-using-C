@@ -1,20 +1,38 @@
 #include <stdio.h>
 
+void reverse(int array[], int length);
+
 int main(void)
 {
-    int myArray[] = {1, 2, 3, 4, 5, 6, 7, 8, 9};
-    int length = 9;
+    int myArray1[] = {1, 2, 3, 4, 5, 6, 7, 8, 9};
+    int myArray2[] = {6, 5, 4, 3, 2, 1};
+    reverse(myArray1, 9);
+    reverse(myArray2, 6);
+
+    for (int i = 0; i < 9; i++)
+    {
+        printf("myArray1[%d] = %d\n", i, myArray1[i]);
+    }
+
+    printf("\n");
+
+    for (int i = 0; i < 6; i++)
+    {
+        printf("myArray2[%d] = %d\n", i, myArray2[i]);
+    }
+
+    return 0;
+}
+
+void reverse(int array[], int length)
+{
     int temp = 0;
     for (int i = 0; i < length / 2; i++)
     {
-        temp = myArray[i];
-        myArray[i] = myArray[length - i - 1];
-        myArray[length - i - 1] = temp;
+        temp = array[i];
+        array[i] = array[length - i - 1];
+        array[length - i - 1] = temp;
     }
-
-    for (int i = 0; i < length; i++)
-        printf("myArray[%d] = %d\n", i, myArray[i]);
-    return 0;
 }
 
 // Code Breakdown
@@ -99,7 +117,6 @@ int main(void)
 // myArray[6] = 3
 // myArray[7] = 2
 // myArray[8] = 1
-
 
 // Summary
 // The loop runs length / 2 = 4 times to swap elements from the start and end of the array.
