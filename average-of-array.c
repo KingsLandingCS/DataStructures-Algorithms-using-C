@@ -1,5 +1,6 @@
 #include <stdio.h>
 
+double avg(double array[], int length);
 int main(void)
 {
     double arr1[] = {
@@ -8,15 +9,24 @@ int main(void)
         6.5,
         4.1,
         7.8};
-    double sum = 0;
-    double average = 0;
+    double arr2[] = {
+        10.0};
+    double arr3[] = {9.8, 9.6};
+    double arr4[] = {-50, 50, -100, 100, -20, 20};
 
-    for (int i = 0; i < 5; i++)
-    {
-        sum = sum + arr1[i];
-        printf("arr1[%d]=%.2lf, sum=%.2lf\n", i, arr1[i], sum);
-    }
-    average = sum / 5;
-    printf("average: %.2lf\n", average);
+    printf("arr1 avg: %.2lf\n", avg(arr1, 5));
+    printf("arr2 avg: %.2lf\n", avg(arr2, 1));
+    printf("arr3 avg: %.2lf\n", avg(arr3, 2));
+    printf("arr4 avg: %.2lf\n", avg(arr4, 6));
     return 0;
+}
+
+double avg(double array[], int length)
+{
+    double sum = 0;
+    for (int i = 0; i < length; i++)
+    {
+        sum = sum + array[i];
+    }
+    return sum / length;
 }
